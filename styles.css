@@ -611,6 +611,78 @@ h3 {
   color: var(--sage);
 }
 
+
+/* Promo pricing */
+.price-block {
+  margin-top: 0.85rem;
+  margin-bottom: 0.15rem;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  line-height: 1.1;
+}
+
+.price-promo {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--terracotta);
+  letter-spacing: -0.01em;
+}
+
+.price-original {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  opacity: 0.72;
+}
+
+.price-original s {
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+
+.price-label {
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.offer-cta .price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.final-cta .price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.price-block-on-dark .price-promo {
+  color: #e8a57a;
+}
+
+.price-block-on-dark .price-original {
+  color: rgba(247, 243, 235, 0.55);
+  opacity: 1;
+}
+
+.price-block-on-dark .price-label {
+  color: rgba(247, 243, 235, 0.65);
+}
+
 /* Utilities */
 .sr-only {
   position: absolute;
