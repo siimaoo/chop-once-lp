@@ -9,6 +9,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- PostHog analytics -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_u7rtyw3stSiUzY55goWUjZ52ikXKW3LM3MPzFyYN2iJ7', {
+      api_host: 'https://us.i.posthog.com',
+      person_profiles: 'identified_only',
+      capture_pageview: true,
+      capture_pageleave: true
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-ph-cta]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (window.posthog) {
+            posthog.capture('cta_get_ebook_clicked', {
+              location: el.getAttribute('data-ph-cta') || 'unknown',
+              href: el.getAttribute('href') || ''
+            });
+          }
+        });
+      });
+    });
+  </script>
+
 </head>
 <body>
   <main>
@@ -21,7 +45,7 @@
           <p class="lead">Restaurant secrets for weeknight dinners. Prep once. Cook faster all week.</p>
           <div class="hero-cta">
             <!-- REPLACE_BUY_URL -->
-            <a class="btn btn-primary" href="https://example.com/buy">Get the ebook</a>
+            <a class="btn btn-primary" href="https://example.com/buy" data-ph-cta="hero">Get the ebook</a>
             <div class="price-block">
               <p class="price-row">
                 <span class="price-promo">$9.97</span>
@@ -222,7 +246,7 @@
           </div>
           <div class="offer-cta">
             <!-- REPLACE_BUY_URL -->
-            <a class="btn btn-primary" href="https://example.com/buy">Get the ebook</a>
+            <a class="btn btn-primary" href="https://example.com/buy" data-ph-cta="offer">Get the ebook</a>
             <div class="price-block">
               <p class="price-row">
                 <span class="price-promo">$9.97</span>
@@ -286,7 +310,7 @@
         <h2 id="final-title">Ready for faster weeknights?</h2>
         <p class="lead">Get <em>Chop Once, Cook Faster</em> and put restaurant prep logic to work at home.</p>
         <!-- REPLACE_BUY_URL -->
-        <a class="btn btn-on-dark" href="https://example.com/buy">Get the ebook</a>
+        <a class="btn btn-on-dark" href="https://example.com/buy" data-ph-cta="final">Get the ebook</a>
         <div class="price-block price-block-on-dark">
           <p class="price-row">
             <span class="price-promo">$9.97</span>
