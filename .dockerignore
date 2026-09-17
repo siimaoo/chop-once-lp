@@ -2,3 +2,4 @@
 .gitignore
 *.md
 .DS_Store
+posthog-setup.txt
